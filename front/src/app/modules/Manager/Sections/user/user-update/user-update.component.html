@@ -1,0 +1,56 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-title>Update User</mat-card-title>
+    <form [formGroup]="userForm" autocomplete="off" novalidate (ngSubmit)="updateUser(userForm.value)" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-card-content>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="User's First Name" formControlName="firstName" id="firstName">
+          <mat-hint align="end">Not more then 15 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('firstName', 'required')">Name is required</mat-error>
+          <mat-error *ngIf="hasError('firstName', 'maxlength')">You have more than 15 characters</mat-error>
+        </mat-form-field>
+        <br>
+        <br>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="User's Last Name" formControlName="lastName" id="lastName">
+          <mat-hint align="end">Not more then 15 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('lastName', 'required')">Name is required</mat-error>
+          <mat-error *ngIf="hasError('lastName', 'maxlength')">You have more than 15 characters</mat-error>
+        </mat-form-field>
+        <br><br>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="User's Email" formControlName="email" id="email">
+          <mat-hint align="end">Not more then 50 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('email', 'required')">Name is required</mat-error>
+          <mat-error *ngIf="hasError('email', 'maxlength')">You have more than 50 characters</mat-error>
+        </mat-form-field>
+        <br><br>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="User's Phone Number" formControlName="phoneNumber" id="phoneNumber">
+          <mat-hint align="end">Not more then 10 characters long  ( e.g 0712345678 )</mat-hint>
+          <mat-error *ngIf="hasError('phoneNumber', 'required')">Name is required</mat-error>
+          <mat-error *ngIf="hasError('phoneNumber', 'maxlength')">You have more than 10 characters</mat-error>
+        </mat-form-field>
+        <br><br>
+       <!-- <mat-form-field>
+          <mat-label>Select a Role</mat-label>
+          <mat-select formControlName="role" id="role">
+            <mat-option *ngFor="let role of roles" [value]="role.id">
+              {{ role.description }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> -->
+
+      </mat-card-content>
+      <mat-card-actions align="center">
+        <button mat-raised-button color="primary" [disabled]="!userForm.valid">Update</button>
+        <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</section>
