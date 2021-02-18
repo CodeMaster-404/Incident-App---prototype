@@ -1,0 +1,78 @@
+h1 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+
+.center {
+margin-left: auto;
+margin-right: auto;
+
+
+}
+#incidents {
+font-family: Arial, Helvetica, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
+
+#incidents td, #incidents th {
+border: 1px solid #ddd;
+padding: 8px;
+}
+
+#incidents tr:nth-child(even){background-color: #f2f2f2;}
+
+#incidents tr:hover {background-color: #ddd;}
+
+#incidents th {
+padding-top: 12px;
+padding-bottom: 12px;
+text-align: left;
+background-color: #717a71;
+color: white;
+}
+.bg {
+/* The image used */
+
+
+/* Full height */
+height: 100%; 
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+input[type=submit]{
+background-color: #272999;
+border: none;
+color: white;
+padding: 16px 32px;
+text-decoration: none;
+margin: 4px 2px;
+cursor: pointer;
+}
+th, td {
+padding: 15px;
+text-align: left;
+}
+
+table {
+   background-color: #f1eeee; 
+   width: 100%;
+  }
+
+input[type="submit"][disabled]
+{
+  border: 1px solid #999999;
+  color: #4354b8;
+}
+.inciTable {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 20px 20px 0 20px;
+  background-color: white;
+  opacity: 0.935;
+
+}
