@@ -1,0 +1,34 @@
+
+
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+      <mat-card-title>Details for the clicked User</mat-card-title>
+      <mat-card-content>
+        <div fxLayout="column wrap" fxLayoutGap="40px">
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>User Id:</strong></div>
+            <div fxFlex>{{user.id}}</div>
+          </div>
+
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>User Name:</strong></div>
+            <div fxFlex>{{user.lastName}} {{user.firstName}}</div>
+          </div>
+
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Email:</strong></div>
+            <div fxFlex>{{user.email}}</div>
+          </div>
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Phone number:</strong></div>
+            <div fxFlex>{{user.phoneNumber}}</div>
+          </div>
+
+          <mat-card-actions align="center">
+            <button type="button" mat-raised-button color="warn" (click)="onCancel()">Back To User List</button>
+          </mat-card-actions>
+
+        </div>
+      </mat-card-content>
+    </mat-card>
+</section>
