@@ -1,0 +1,49 @@
+
+  .content {
+
+    display: flex;
+    margin: 82px auto 32px;
+    padding:  16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .spacer{
+    padding: 5%;
+  }
+
+  .button{
+
+    background-color: #1E73BC;
+    border-radius: 5px;
+    border:#1E73BC;
+    color: white;
+    width: 30%;
+    height: 45px;
+    font-family: Arial Rounded MT;
+    font-size: 13pt;
+  }
+
+  footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+  }
+
+  footer a {
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+
+  a,
+a:visited,
+a:hover {
+  color: #1976d2;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #125699;
+}

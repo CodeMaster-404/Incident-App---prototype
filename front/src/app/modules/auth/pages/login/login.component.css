@@ -1,0 +1,110 @@
+.main-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #f7f8f9;
+}
+
+.login-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.logo {
+  position: relative;
+  width: 180px;
+  height: 80px;
+  background: url(../../../../../assets/gijima_logo_wo_line.png) no-repeat;
+  background-color: #0c3a8a65;
+  background-size: contain;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+.login-card {
+  position: relative;
+  background-color: white;
+  width: 450px;
+  height: 1000px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: 0 0 13px 0 rgb(82 63 105 / 5%);
+}
+
+.spacer{
+  padding: 1%;
+}
+.spacer1{
+  padding: 5%;
+}
+.container{
+  background-color: #707070;
+  color: white;
+  width: 29%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*margin: 82px auto 32px;*/
+}
+
+
+
+.button{
+
+  background-color: #1E73BC;
+  border-radius: 5px;
+  border:#1E73BC;
+  color: white;
+  width: 100%;
+  height: 25px;
+  font-family: Arial Rounded MT;
+  font-size: 13pt;
+}
+
+.content{
+  color:white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 82px auto 32px;
+  height: 50%;
+}
+#email{
+  height: 25px;
+  border-radius: 4px;
+  border:#989898;
+  color: #989898;
+  -webkit-text-fill-color: black;
+}
+#password{
+  height: 25px;
+  border-radius: 4px;
+  border:#989898;
+}
+
+#LoginForm{
+  padding: 3%;
+  width: 45%;
+  display: block;
+  box-sizing: border-box;
+}
+
+a,
+  a:visited,
+  a:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: white;
+  }
+
+input:-webkit-any(){
+  color: white;
+  -webkit-text-fill-color: black;
+
+}
+

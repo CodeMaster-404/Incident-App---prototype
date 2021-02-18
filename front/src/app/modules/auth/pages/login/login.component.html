@@ -1,0 +1,42 @@
+<div class="content">
+  <div class="spacer1"></div>
+    <div class="container" >
+      <div class="spacer1"></div>
+      <h2 class="card-title">Sign into your account</h2>
+      <div class="spacer"></div>
+        <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="onSubmit()">
+          <div class="form-group row" style="align-items: center;">
+              <label for="email" class="col-form-label col-sm-2">Email:</label>
+              <div class="col-md-5">
+                  <input type="text" id="email" formControlName="email" class="form-control" />
+              </div>
+              <div class="col-md-5">
+                <em *ngIf="validateControl('email') && hasError('email', 'required')">Email is required</em>
+            </div>
+          </div>
+          <div class="form-group row">
+              <label for="password" class="col-form-label col-sm-2">Password:</label>
+              <div class="col-md-5">
+                  <input type="text" id="password" formControlName="password" class="form-control" />
+              </div>
+              <div class="col-md-5">
+                <em *ngIf="validateControl('password') && hasError('password', 'required')">Password is required</em>
+            </div>
+          </div>
+
+          <br>
+          <div class="form-group row">
+              <div class="col-md-1">
+                  <button type="submit" class="button" [disabled]="!loginForm.valid">Login</button>
+              </div>
+          </div>
+        </form>
+        <div class="spacer1"></div>
+        <div class="spacer"></div>
+
+    </div>
+    <br/>
+    <a routerLink="/auth/register" routerLinkActive="active">register</a>
+    <br/>
+    <a routerLink="/forgot password" routerLinkActive="active">forgot password</a>
+</div>
