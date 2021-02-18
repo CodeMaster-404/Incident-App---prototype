@@ -1,0 +1,25 @@
+<div class="header">
+    <a routerLink='/' >
+        <img width="240"
+        alt="logo"
+        src="/assets/logo-gijima-web02.png">
+    </a>
+    <span><h1  style="font-family: Arial Rounded MT">Incident Application</h1></span>
+
+
+
+    <div class="profile-container" (click)="toggleProfileMenu()">
+        <div class="profile-picture-circle">
+            <img class="picture" src="../../../assets/profile.png">
+        </div>
+        <div class="text-container">
+            <h4 class="name">{{ firstName + ' ' + lastName }}</h4>
+            <h4 class="role">{{ role }}</h4>
+        </div>
+        <img *ngIf="!profileMenu" class="caret" src="../../../assets/caret-down.svg">
+        <img *ngIf="profileMenu" class="caret" src="../../../assets/caret-arrow-up.svg">
+    </div>
+
+    <!-- <div class="background-bottom-color">
+    </div> -->
+</div>

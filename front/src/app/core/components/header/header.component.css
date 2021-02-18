@@ -1,0 +1,148 @@
+.header {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background-color: #062e72;
+    z-index: 100;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.713);
+    background-color: #1E73BC;
+    color: white;
+    font-weight: 600;
+}
+
+.header a {
+    cursor: pointer;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 220px;
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    color: rgba(255, 255, 255, 0.838);
+    /* font-size: 24px; */
+    font-family: Arial Rounded MT;
+    margin: 8px 0;
+}
+
+
+.background-bottom-color {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, #ff0000 0%,#724696 85%,#86acff 90%);
+    height: 2px;
+}
+
+.logo {
+    position: relative;
+    margin: 10px 0 0 20px;
+    height: 50px;
+}
+.header img {
+  margin: 0 40px;
+}
+
+.profile-container {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    bottom: 0;
+    width: 250px;
+    color: white;
+}
+
+.profile-container:hover {
+    background-color: #0c3a8a65;
+    color: rgb(220, 220, 220);
+    cursor: pointer;
+}
+
+.profile-picture-circle {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 50%;
+    left: 10px;
+    -ms-transform: translate(0%, -50%);
+    transform: translate( 0%, -50%);
+    /* background: linear-gradient(to right, #ff0000 0%,#724696 85%,#86acff 90%); */
+    background: #86acff;
+    border-radius: 50%;
+}
+
+.picture {
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    height: 46px;
+    width: 46px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.text-container {
+    position: relative;
+    margin-left: 70px;
+}
+
+.name {
+    position: absolute;
+    left: 0;
+    top: 15px;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    width: 80%;
+    font-size: 18px;
+    text-align: left;
+    text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.chat-nameDisplay {
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 80%;
+    color: rgb(0 0 0 );
+    text-align: left;
+    font-size: 17px;
+    text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+.role {
+    position: absolute;
+    left: 0;
+    top: 35px;
+    right: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.caret {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    height: 11px;
+    width: 11px;
+    fill: #ffffff;
+}

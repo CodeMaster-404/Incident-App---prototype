@@ -1,0 +1,43 @@
+.wrapper {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: #062e7235;
+    z-index: 10;
+    box-shadow: 0 14px 0 0 rgba(0, 0, 0, 0.713);
+}
+
+/* nav {
+    margin-top: 10px;
+} */
+
+.navbar-nav {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* background-color: #f1f1f1; */
+    position: relative;
+    height: 100%;
+    overflow: auto;
+}
+
+.navbar-nav a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.routerActive {
+    background-color: rgba(85, 85, 85, 0.583);
+}
+
+.navbar-nav a:hover:not(.active) {
+    background-color: rgba(85, 85, 85, 0.583);
+    color: white;
+}
