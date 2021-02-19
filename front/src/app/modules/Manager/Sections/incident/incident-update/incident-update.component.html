@@ -1,0 +1,48 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+      <mat-card-title>Details for the clicked Incident</mat-card-title>
+      <mat-card-content>
+        <div fxLayout="column wrap" fxLayoutGap="40px">
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Location:</strong></div>
+            <div fxFlex>{{incident.location}}</div>
+          </div>
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Description:</strong></div>
+            <div fxFlex>{{incident.description}}</div>
+          </div>
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Date logged:</strong></div>
+            <div fxFlex>{{incident.date_Logged | date:"dd/MM/yyyy"}}</div>
+          </div>
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Status:</strong></div>
+            <div fxFlex>{{incident.status.description}}</div>
+          </div>
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Logged by:</strong></div>
+            <div fxFlex>{{incident.user.lastName}} {{incident.user.firstName}}</div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+</section>
+<br>
+
+
+<form [formGroup]="incidentForm" autocomplete="off" novalidate (ngSubmit)="updateIncident(incidentForm.value)" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="10px">
+
+      <mat-form-field>
+        <mat-label>Select Technician</mat-label>
+        <mat-select formControlName="tech" id="tech">
+          <mat-option *ngFor="let tech of technicians" [value]="tech.id">
+            {{ tech.lastName }} {{ tech.firstName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-card-actions align="center">
+        <button mat-raised-button color="primary" [disabled]="!incidentForm.valid">Assign</button>
+        <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+      </mat-card-actions>
+    </form>

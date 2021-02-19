@@ -1,13 +1,13 @@
-import { TaskDetailsComponent } from './../task-details/task-details.component';
-import { TaskListComponent } from './../task-list/task-list.component';
+import { ReportListComponent } from './../report-list/report-list.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { MaterialModule } from '../../../material/material.module';
+import { ReportDetailsComponent } from '../report-details/report-details.component';
 
 const routes: Routes = [
-  { path: 'tasks', component: TaskListComponent },
-  { path: 'details/:id', component: TaskDetailsComponent},
+  { path: 'reports', component: ReportListComponent },
+  { path: 'details/:id', component: ReportDetailsComponent}
 ];
 
 @NgModule({
@@ -21,4 +21,4 @@ const routes: Routes = [
     RouterModule
   ],
 })
-export class TaskRoutingModule { }
+export class ReportRoutingModule { }

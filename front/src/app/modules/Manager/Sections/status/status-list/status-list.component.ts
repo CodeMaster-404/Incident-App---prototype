@@ -1,4 +1,4 @@
-import { Task } from './../../../interfaces/Task.Model';
+import { Status } from './../../../interfaces/Status.Model';
 import { RepositoryService } from '../../../shared/repository.service';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
@@ -9,21 +9,24 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-task-list',
-  templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.css']
+  selector: 'app-status-list',
+  templateUrl: './status-list.component.html',
+  styleUrls: ['./status-list.component.css']
 })
-export class TaskListComponent implements OnInit, AfterViewInit {
+export class StatusListComponent implements OnInit, AfterViewInit  {
+
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
 
-  public displayedColumns = ['task_ID', 'task_Status', 'incident','technician','details', 'update',];
-  public dataSource = new MatTableDataSource<Task>();
-  constructor(private repoService: RepositoryService, private errorService: ErrorHandlerService, private router: Router) { }
+  public displayedColumns = ['id', 'description', 'details', 'update',];
+  public dataSource = new MatTableDataSource<Status>();
+  constructor(private repoService: RepositoryService,
+    private errorService: ErrorHandlerService, private router: Router) { }
   ngOnInit() {
-    this.getAllIncidents();
+    this.getAllStatuses();
   }
+
   public doFilter = (value: string) => {
     this.dataSource.filter = value.trim().toLocaleLowerCase();
   }
@@ -32,17 +35,23 @@ export class TaskListComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
-  public getAllIncidents = () => {
-    this.repoService.getData('api/Manager/tasks')
+
+  public getAllStatuses = () => {
+    this.repoService.getData('api/Manager/statuses')
     .subscribe(res => {
-      this.dataSource.data = res as Task[];
+      this.dataSource.data = res as Status[];
     },
     (error) => {
       this.errorService.handleError(error);
     })
+  }
+  public redirectToDetails = (id: number) => {
+    let url: string = `/Manager/status/details/${id}`;
+    this.router.navigate([url]);
   }
   public redirectToUpdate = (id: number) => {
 
   }
 
 }
+
