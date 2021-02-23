@@ -10,5 +10,6 @@ namespace IncidentApplication.Services
     {
         public Task SendConfirmEmailAsync(ApplicationUser user, string email, string url);
         public Task SendRestPasswordEmailAsync(ApplicationUser user, string email, string url);
+        public Task SendIncidentLoggedEmailAsync(ApplicationUser user, Incidents incident);
     }
 }
