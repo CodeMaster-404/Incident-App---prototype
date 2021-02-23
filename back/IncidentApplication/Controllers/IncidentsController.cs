@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using IncidentApplication.Data;
 using IncidentApplication.Models;
 using Microsoft.AspNetCore.Authorization;
+using IncidentApplication.Models.Requests;
+using IncidentApplication.Services;
 using IncidentApplication.Models.Responses;
+using Microsoft.AspNetCore.Identity;
 
 namespace IncidentApplication.Controllers
 {
@@ -17,11 +21,15 @@ namespace IncidentApplication.Controllers
     public class IncidentsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public IncidentsController(ApplicationDbContext context)
+        public IncidentsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IEmailSender emailSender)
         {
             _context = context;
+            _emailSender = emailSender;
+            _userManager = userManager;
         }
+        private readonly IEmailSender _emailSender;
 
         // GET: api/Incidents
         [Authorize]
@@ -281,15 +289,36 @@ namespace IncidentApplication.Controllers
         // POST: api/Incidents
         [Authorize(Roles = "User")]
         [HttpPost]
-        public async Task<IActionResult> PostIncident([FromBody] Incidents incident)
+        public async Task<IActionResult> PostIncident([FromBody] LogIncidentRequest request)
         {
+          
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+          
 
+            Incidents incident = new Incidents
+            {
+                //Id = request.Id,
+                Location = request.Location,
+                Description = request.Description,
+                Date_Logged = request.Date_Logged,
+                StatusId = request.StatusId,
+                UserId = request.UserId
+            };
+            
             _context.Incidents.Add(incident);
             await _context.SaveChangesAsync();
+            ApplicationUser user = await _userManager.FindByIdAsync(incident.UserId);
+
+            if (user != null)
+            {
+                Task task = _emailSender.SendIncidentLoggedEmailAsync(user, incident);
+                await task;
+            }
+            //await _emailSender.SendEmailAsync(user, emails, "Incident Logged", "Incident Details \n" /*+ "Incident Reference "+request.Id +*/+ "\n Incdient Description " + request.Description + "\n Incdient Location " + request.Location + "\n Date Logged " + request.Date_Logged);
 
             return CreatedAtAction("GetIncident", new { id = incident.Id }, incident);
         }
